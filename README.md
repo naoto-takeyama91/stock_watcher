@@ -1,24 +1,78 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
 
-Things you may want to cover:
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|email|string|null: false, uniqueness: true|
+|password|string|null: false, uniqueness: true|
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :inventories
+- has_many :items, through: :inventories
+- has_many :purchase_histories
 
-* Configuration
+## items table
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|image|string||
+|url|string||
+|term|integer||
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_many :inventories
+- has_many :users, through: :inventories
+- has_many :purchase_histories
 
-* Services (job queues, cache servers, search engines, etc.)
+## inventories table
 
-* Deployment instructions
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
+|amount|integer|null: false|
 
-* ...
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+## categories table
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+
+- has_many :items, through: :item_categories
+- has_many :item_categories
+
+## item_categories table
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :item
+- belongs_to :category
+
+## purchase_histories table
+
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false|
+|item_id|integer|null: false, foreign_key: true|
+|amount|integer|null: false, foreign_key: true|
+
+### Association
+
+
