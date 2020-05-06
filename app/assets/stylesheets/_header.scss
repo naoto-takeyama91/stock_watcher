@@ -1,0 +1,42 @@
+.header {
+  width: 100vw;
+  height: 60px;
+  background-color: rgb(45, 45, 110);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 120px;
+
+  &__title {
+    width: 55%;
+    height: 100%;
+    line-height: 52px;
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  &__nav-list {
+    width: 45%;
+    height: 100%;
+    line-height: 52px;
+    font-size: 16px;
+
+    .lists {
+      display: flex;
+      justify-content: space-between;
+
+      .user-name {
+        margin-right: 20px;
+      }
+
+      li .menu {
+        text-decoration: none;
+        color: #ffffff;
+        display: inline-block;
+        border: 1px solid #ffffff;
+        padding: 0 10px;
+      }
+    }
+  }
+}
