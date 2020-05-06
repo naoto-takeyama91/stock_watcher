@@ -1,0 +1,49 @@
+main {
+  width: 100vw;
+  height: calc(100vh - 60px);
+  background-color: rgb(230, 230, 230);
+
+  .contents {
+    width: 100%;
+    height: 100%;
+    padding: 20px 40px;
+    display: flex;
+
+    &__left-content {
+      width: 50%;
+      height: 100%;
+      padding: 10px 20px;
+      background-color: pink;
+    }
+
+    &__right-content {
+      width: 50%;
+      height: 100%;
+      padding: 10px 20px;
+      background-color: skyblue;
+    }
+  }
+}
+
+h1 span {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  border-bottom: 1px solid black;
+}
+
+ul.items {
+  width: 100%;
+  height: 630px;
+  overflow: scroll;
+
+  li.item {
+    width: 100%;
+    height: 100px;
+    background-color: blanchedalmond;
+  }
+
+  li.item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
