@@ -11,7 +11,7 @@
 ### Association
 
 - has_many :inventories
-- has_many :items, through: :inventories
+- has_many :items
 - has_many :purchase_histories
 
 ## items table
@@ -19,14 +19,16 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
 |image|string||
 |url|string||
-|term|integer||
+|term|integer|null: false|
+|inventory_id|integer|null: false|
 
 ### Association
 
-- has_many :inventories
-- has_many :users, through: :inventories
+- belongs_to :user
+- belongs_to :inventory
 - has_many :purchase_histories
 
 ## inventories table
@@ -75,4 +77,5 @@
 
 ### Association
 
-
+- belongs_to :user
+- belongs_to :item
