@@ -1,0 +1,15 @@
+= render 'layouts/header'
+
+%h2 アカウント編集
+= form_for(current_user) do |f|
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name, autofocus: true, autocomplete: "name"
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .actions
+    = f.submit "更新!"
+    
