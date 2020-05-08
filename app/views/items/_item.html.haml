@@ -1,0 +1,16 @@
+%li.item
+  .item__name  
+    = item.name
+  = link_to edit_item_path(item.id), class: 'item__edit' do
+    編集
+  = link_to item_path(item.id), method: :delete, class: 'item__delete' do
+    削除
+  - if item.url.present?
+    = link_to item.url, class: 'item__link', target: '_blank' do
+      = icon('fas', 'shopping-cart')
+  .item__term
+    消費期間: #{item.term}日
+  .item__latest-purchase-date
+    最終購入日:
+  .item__inventory
+    残り:
