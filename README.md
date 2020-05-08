@@ -23,12 +23,11 @@
 |image|string||
 |url|string||
 |term|integer|null: false|
-|inventory_id|integer|null: false|
 
 ### Association
 
 - belongs_to :user
-- belongs_to :inventory
+- has_many :inventories
 - has_many :purchase_histories
 
 ## inventories table
@@ -38,7 +37,6 @@
 |user_id|integer|null: false, foreign_key: true|
 |item_id|integer|null: false, foreign_key: true|
 |amount|integer|null: false|
-
 ### Association
 
 - belongs_to :user
