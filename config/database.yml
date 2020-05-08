@@ -19,6 +19,7 @@ default: &default
 
 development:
   <<: *default
+  collation: utf8_general_ci
   database: stock_watcher_development
 
 # Warning: The database defined as "test" will be erased and
