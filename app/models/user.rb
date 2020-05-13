@@ -5,9 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  has_many :inventories
-  has_many :purchase_histories
+  has_many :item_inventories, through: :item
+  has_many :purchase_histories, through: :item
 
-  validates :name, presence: true 
+  with_options presence: true do
+    validates :name
+    validates :email
+  end 
   
 end

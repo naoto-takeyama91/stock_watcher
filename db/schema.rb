@@ -10,23 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_091358) do
+ActiveRecord::Schema.define(version: 2020_05_10_055820) do
 
-  create_table "inventories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "item_inventories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "amount", null: false
-    t.bigint "user_id"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "item_id", null: false
-    t.index ["item_id"], name: "index_inventories_on_item_id"
-    t.index ["user_id"], name: "fk_rails_6642cbdd87"
+    t.index ["item_id"], name: "index_item_inventories_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id", null: false
     t.string "image"
-    t.string "url"
+    t.string "url", limit: 1000
     t.integer "term", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,13 +32,11 @@ ActiveRecord::Schema.define(version: 2020_05_07_091358) do
   end
 
   create_table "purchase_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.bigint "item_id", null: false
     t.integer "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "fk_rails_4fdecf84cc"
-    t.index ["user_id"], name: "fk_rails_72adc47b72"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,9 +53,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_091358) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "inventories", "items"
-  add_foreign_key "inventories", "users"
+  add_foreign_key "item_inventories", "items"
   add_foreign_key "items", "users"
   add_foreign_key "purchase_histories", "items"
-  add_foreign_key "purchase_histories", "users"
 end

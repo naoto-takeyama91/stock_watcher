@@ -1,0 +1,11 @@
+= render 'layouts/header'
+
+%h2 new購入
+= form_for [current_user, @item, @purchaseHistory] do |f|
+  .field
+    = f.label "数量"
+    %br/
+    = f.number_field :amount
+    個
+  .actions
+    = f.submit "購入しました!"

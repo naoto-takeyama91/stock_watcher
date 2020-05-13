@@ -1,0 +1,26 @@
+%main
+  .contents
+    
+    .contents__left-content
+      %h1.contents__left-content__header
+        %span.title
+          買い物リスト
+      %ul.items
+        - if !@items.empty?
+          - @items.each do |item|
+            - if item.item_inventory.present? && (item.term * item.item_inventory.amount / 100) < 15
+              = render partial: 'items/item', locals: {item: item}
+    
+    .contents__right-content
+      %h1.contents__right-content__header
+        %span.title
+          マイアイテム
+        = link_to new_user_item_path(current_user), class: 'add-item' do
+          #{icon('fas', 'plus')} 追加する
+      = form_with url: user_items_searches_path(current_user), local: true, method: :get, class: 'search-form' do |f|
+        .field
+          = f.text_field :keyword, placeholder: 'アイテムを検索する', class: 'search-input'
+          = f.button type: 'submit', class: 'seach-btn' do
+            #{icon('fas', 'search')}検索
+      %ul.items
+        = render @items if !@items.empty?

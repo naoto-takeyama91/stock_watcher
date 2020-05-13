@@ -1,0 +1,4 @@
+= render 'layouts/header'
+
+%ul.purchase-histories
+  = render partial: 'purchased_item', collection: @purchaseHistories, as: :purchaseHistory if !@purchaseHistories.empty?

@@ -6,7 +6,8 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save 
+    if @item.save
+      @itemInventory = ItemInventory.create(item_id: @item.id, amount: 0)
       redirect_to root_path, notice: 'アイテムが追加されました'
     else
       flash.now[:alert] = '入力内容に誤りがあります'

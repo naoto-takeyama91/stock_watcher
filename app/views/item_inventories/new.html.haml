@@ -1,0 +1,11 @@
+= render 'layouts/header'
+
+%h2 newインベントリー
+= form_for [current_user, @item, @itemInventory] do |f|
+  .field
+    = f.label "残り"
+    %br/
+    = f.number_field :amount
+    ％
+  .actions
+    = f.submit "登録!"
