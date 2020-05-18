@@ -1,5 +1,10 @@
 class ItemsController < ApplicationController
+  before_action :set_items
 
+  def index
+    @items.update_itemInventory
+  end
+  
   def new
     @item = Item.new
   end
@@ -35,6 +40,10 @@ class ItemsController < ApplicationController
   end
 
   private
+
+  def set_items
+    @items = current_user.items
+  end
 
   def item_params
     params.require(:item).permit(:name, :image, :url, :term).merge(user_id: current_user.id)

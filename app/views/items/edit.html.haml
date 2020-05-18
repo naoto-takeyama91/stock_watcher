@@ -1,7 +1,7 @@
 = render 'layouts/header'
 
 %h2 アイテム編集
-= form_for [current_user, @item] do |f|
+= form_for @item, url: user_item_path do |f|
   .field
     = f.label "アイテム名"
     %br/

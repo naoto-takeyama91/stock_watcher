@@ -7,8 +7,8 @@
       %ul.items
         - if !@items.empty?
           - @items.each do |item|
-            - if (item.term * item.item_inventory.amount / 100) <= 7
-              = render partial: 'items/item', locals: {item: item}
+            - if item.item_inventory.present? && (item.term * item.item_inventory.amount / 100) <= 7
+              = render partial: 'item', locals: {item: item}
     
     .contents__bottom-content
       .contents__bottom-content__header
@@ -20,8 +20,6 @@
           = icon('fas', 'search', class: 'search-icon')
           %label.search-field
             = f.text_field :keyword, placeholder: 'アイテムを検索する', class: 'search-input'
-      - if params[:keyword].present?
-        %span.search-keyword
-          "「#{params[:keyword]}」の検索結果： #{@searchItems.length}件"
+
       %ul.items.my-items
-        = render partial: 'items/item', collection: @searchItems, as: :item if !@searchItems.empty?
+        = render @items if !@items.empty?

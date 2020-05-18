@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'users#index'
-  resources :users, only: [:edit, :update] do
+  root 'items#index'
+  resource :user, only: [:edit, :update] do
     namespace :items do
       resources :searches, only: :index
     end

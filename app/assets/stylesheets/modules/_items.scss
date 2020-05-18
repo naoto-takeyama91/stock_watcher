@@ -1,0 +1,100 @@
+main {
+  width: 100vw;
+  min-height: calc(100vh - 130px);
+
+  .contents {
+    width: 100%;
+    height: 100%;
+    padding: 80px 100px;
+
+    &__top-content {
+      width: 100%;
+      padding: 10px 20px;
+
+      ul.items li.item {
+        background-color: rgba(255, 166, 0, 0.233);
+      }
+    }
+
+    &__bottom-content {
+      width: 100%;
+      padding: 10px 20px;
+      margin-top: 60px;
+    }
+  }
+}
+
+.heading {
+  width: 200px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 20px 10px;
+  display: inline-block;
+}
+
+.add-item {
+  width: 160px;
+  padding: 0 10px;
+  text-decoration: none;
+  color: #ffffff;
+  display: inline-block;
+  border: 1px solid #FFA500;
+  background-color: #FFA500;
+  border-radius: 14px;
+  margin-right: 20px;
+
+  .add-icon {
+    color: #ffffff;
+  }
+}
+
+.search-form {
+  width: 100px;
+  display: inline-block;
+  position: relative;
+
+  .search-icon {
+    position: absolute;
+    font-size: 14px;
+    top: 6px;
+    left: 6px;
+  }
+}
+
+.search-input {
+  padding: 0 10px 0 24px;
+  border: 1px solid #DDDDDD;
+  border-radius: 6px;
+}
+
+ul.items {
+  width: 100%;
+  overflow: scroll;
+
+  li.item {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+  }
+
+  li.item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+ul.items.my-items {
+  width: 100%;
+  overflow: scroll;
+
+  li.item {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+  }
+
+  li.item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}

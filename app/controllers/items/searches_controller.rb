@@ -2,8 +2,11 @@ class Items::SearchesController < ApplicationController
   before_action :set_items
   
   def index
-    redirect_to root_path if params[:keyword].empty?
-    @searchItems = current_user.items.search(params[:keyword])
+    @searchItems = @items.search(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private

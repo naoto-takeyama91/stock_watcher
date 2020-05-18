@@ -1,7 +1,7 @@
 = render 'layouts/header'
 
 %h2 editインベントリー
-= form_for [current_user, @item, @itemInventory]  do |f|
+= form_for [@item, @itemInventory], url: user_item_item_inventory_path do |f|
   .field
     = f.label "残り"
     %br/

@@ -1,7 +1,7 @@
 = render 'layouts/header'
 
 %h2 new購入
-= form_for [current_user, @item, @purchaseHistory] do |f|
+= form_for [@item, @purchaseHistory], url: user_item_purchase_histories_path do |f|
   .field
     = f.label "数量"
     %br/

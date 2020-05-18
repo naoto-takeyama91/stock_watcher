@@ -3,20 +3,20 @@
     = item.name
     - if item.url.present?
       = link_to item.url, class: 'item__link', target: '_blank' do
-        = icon('fas', 'link')
+        #{icon('fas', 'link')}購入リンク
   .item__term
     消費期間： #{item.term}日
-  = link_to edit_user_item_path(current_user, item), class: 'item__edit' do
-    = icon('fas', 'edit')
-  = link_to user_item_path(current_user, item), method: :delete, class: 'item__delete' do
-    = icon('fas', 'trash')
-  = link_to new_user_item_purchase_history_path(current_user, item), class: 'item__purchase' do
-    = icon('fas', 'shopping-cart')
+  = link_to edit_user_item_path(item), class: 'item__edit' do
+    #{icon('fas', 'edit')}アイテムを編集
+  = link_to user_item_path(item), method: :delete, class: 'item__delete' do
+    #{icon('fas', 'trash')}アイテムを削除
+  = link_to new_user_item_purchase_history_path(item), class: 'item__purchase' do
+    #{icon('fas', 'shopping-cart')}購入履歴を更新
   - if item.purchase_histories.present?
     .item__latest-purchase-date
       最終購入日： #{item.purchase_histories.order(:created_at).last.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d')}
   - if item.item_inventory.present?
     .item__inventory
       残り： #{item.item_inventory.amount}％（#{item.term * item.item_inventory.amount / 100}日分）
-      = link_to edit_user_item_item_inventory_path(current_user, item, item.item_inventory), class: 'item__inventory__edit' do
-        = icon('fas', 'edit')
+      = link_to edit_user_item_item_inventory_path(item, item.item_inventory), class: 'item__inventory__edit' do
+        #{icon('fas', 'edit')}在庫を編集
