@@ -76,22 +76,10 @@ ul.items {
     padding: 10px;
     border: 1px solid #DDDDDD;
     border-radius: 10px;
-  }
 
-  li.item:not(:last-child) {
-    margin-bottom: 10px;
-  }
-}
-
-ul.items.my-items {
-  width: 100%;
-  overflow: scroll;
-
-  li.item {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #DDDDDD;
-    border-radius: 10px;
+    .item__name {
+      font-weight: bold;
+    }
   }
 
   li.item:not(:last-child) {
