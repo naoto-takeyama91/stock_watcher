@@ -10,37 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_103639) do
+ActiveRecord::Schema.define(version: 2020_05_10_054912) do
 
-  create_table "item_inventories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "item_inventories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "item_id"
     t.integer "amount", null: false
-    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_item_inventories_on_item_id"
   end
 
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.bigint "user_id", null: false
+  create_table "items", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name", null: false
     t.string "image"
-    t.string "url", limit: 1000
+    t.string "url"
     t.integer "term", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_items_on_name", length: 10
-    t.index ["user_id"], name: "fk_rails_d4b6334db2"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "purchase_histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id", null: false
+  create_table "purchase_histories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "item_id"
     t.integer "amount", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "fk_rails_4fdecf84cc"
+    t.index ["item_id"], name: "index_purchase_histories_on_item_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
