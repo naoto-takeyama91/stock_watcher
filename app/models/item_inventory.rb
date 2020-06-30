@@ -1,5 +1,5 @@
 class ItemInventory < ApplicationRecord
-  has_one :item
+  belongs_to :item
   has_one :user, through: :item
 
   validates :amount,
