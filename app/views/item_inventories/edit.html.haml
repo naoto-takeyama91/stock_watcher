@@ -1,11 +1,10 @@
 = render 'layouts/header'
 
-%h2 editインベントリー
-= form_for [@item, @itemInventory], url: user_item_item_inventory_path do |f|
-  .field
-    = f.label "残り"
-    %br/
-    = f.number_field :amount
-    ％
-  .actions
-    = f.submit "更新!"
+.formwrapper
+  %h2 在庫編集
+  = form_for [@item, @itemInventory], url: user_item_item_inventory_path do |f|
+    .field
+      = f.number_field :amount
+      ％
+    .actions
+      = f.submit "更新!"

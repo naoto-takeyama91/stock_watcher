@@ -1,11 +1,10 @@
 = render 'layouts/header'
 
-%h2 new購入
-= form_for [@item, @purchaseHistory], url: user_item_purchase_histories_path do |f|
-  .field
-    = f.label "数量"
-    %br/
-    = f.number_field :amount
-    個
-  .actions
-    = f.submit "購入しました!"
+.formwrapper
+  %h2 新規購入情報
+  = form_for [@item, @purchaseHistory], url: user_item_purchase_histories_path do |f|
+    .field.purchasehistory
+      = f.number_field :amount
+      個
+    .actions
+      = f.submit "購入しました"

@@ -1,7 +1,7 @@
-%li.purchased-item
-  .purchased-item__name  
+%li.purchaseditem
+  .purchaseditem__name  
     = purchaseHistory.item.name
-  .purchased-item__date
+  .purchaseditem__date
     購入日： #{purchaseHistory.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d')}
-  .purchased-item__amount
+  .purchaseditem__amount
     購入数： #{purchaseHistory.amount}個

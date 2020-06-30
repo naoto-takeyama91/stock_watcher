@@ -1,23 +1,24 @@
 = render 'layouts/header'
 
-%h2 アイテム新規登録
-= form_for @item, url: user_items_path do |f|
-  .field
-    = f.label "アイテム名"
-    %br/
-    = f.text_field :name
-  .field
-    = f.label "アイテム画像"
-    %br/
-    = f.file_field :image
-  .field
-    = f.label "購入リンク"
-    %br/
-    = f.url_field :url
-  .field
-    = f.label "消費日数"
-    %br/
-    = f.number_field :term
-    日
-  .actions
-    = f.submit "登録!"
+.formwrapper
+  %h2 アイテム新規登録
+  = form_for @item, url: user_items_path do |f|
+    .field
+      = f.label "アイテム名"
+      %br/
+      = f.text_field :name
+    .field
+      = f.label "アイテム画像"
+      %br/
+      = f.file_field :image
+    .field
+      = f.label "購入リンク"
+      %br/
+      = f.url_field :url
+    .field
+      = f.label "消費日数"
+      %br/
+      = f.number_field :term
+      日
+    .actions
+      = f.submit "登録!"

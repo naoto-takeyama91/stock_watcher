@@ -1,0 +1,22 @@
+.purchasehistorywrapper {
+  width: 600px;
+  margin: 100px auto 0;
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .purchasehistories {
+    padding: 40px 80px;
+    background-color: #F5F5F5;
+
+    .purchaseditem {
+      border: 1px solid #DCDCDC;
+      border-radius: 6px;
+      padding: 6px 10px;
+      margin-bottom: 20px;
+    }
+  }
+}
