@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :item_inventory, dependent: :destroy
   has_many :purchase_histories, dependent: :destroy
+  mount_uploader :image, ImageUploader
 
   validates :name, presence: true
   validates :term,

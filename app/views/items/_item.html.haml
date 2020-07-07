@@ -1,4 +1,7 @@
 %li.item
+  .item_image
+    - if item.image.present?
+      = image_tag item.image.to_s, alt: 'image', height: '100', width: '100', class: 'image'
   .item__name  
     = item.name
     - if item.url.present?
